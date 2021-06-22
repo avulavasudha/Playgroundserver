@@ -1,0 +1,16 @@
+apiVersion: v2
+publisher: ibm-playground
+name: jupyter-server
+version: BUILDID
+type: VS Code extension
+displayName: APIHub
+title: API Hub Explorer
+description: This extension configures jupyter hub server and gives user an option to bring their own jupyter server.
+icon: https://www-03.ibm.com/press/us/en/attachment/20190.wss?fileId=ATTACH_FILE2&fileName=ibmpos_blue.jpg
+repository: https://github.ibm.com/ibm-api-marketplace/playground-api-hub-extension
+category: Editor
+firstPublicationDate: '2021-06-18'
+spec:
+    extensions:
+        - relative:extension/extensions/ibm-playground/api-hub/jupyterserver.vsix
+latestUpdateDate: "LATESTDATE"
