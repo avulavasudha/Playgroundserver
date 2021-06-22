@@ -1,0 +1,12 @@
+{
+  "description": "This extension configures jupyter hub server and gives user an option to bring their own jupyter server.",
+  "displayName": "Jupyter server",
+  "id": "ibm-playground/jupyter-server/BUILDID",
+  "links": {
+    "self": "/v3/plugins/ibm-playground/jupyter-server/BUILDID/"
+  },
+  "name": "jupyter-server",
+  "publisher": "ibm-playground",
+  "type": "VS Code extension",
+  "version": "BUILDID"
+}
