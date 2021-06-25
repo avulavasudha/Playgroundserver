@@ -12,8 +12,7 @@ function activate(context) {
                 "username": process.env.CHE_WORKSPACE_ID,
                 "password": ""
             };
-            var server_ip="169.60.204.172";
-            //PLAYGROUND_JUPYTER_SERVER,
+            var server_ip=process.env.PLAYGROUND_JUPYTER_SERVER;
             const fs = require('fs')
             const fetch = require('node-fetch');
             fetch(`http://${server_ip}/hub/api/authorizations/token`, {
@@ -22,7 +21,7 @@ function activate(context) {
                 })
                 .then(res => res.json())
                 .then(json => {
-                    const a = `{"python.dataScience.jupyterServerURI": "http://${server_ip}/user/${process.env.CHE_WORKSPACE_ID}/?token=${json["token"]}",
+                    const a = `{"python.dataScience.jupyterServerURI": "${server_ip}/user/${process.env.CHE_WORKSPACE_ID}/?token=${json["token"]}",
                                  "python.disableInstallationCheck": true}`
                     fs.writeFile('/home/theia/.theia/settings.json', a, err => {
                         if (err) {
@@ -30,7 +29,7 @@ function activate(context) {
                             return
                         }
                         const {exec} = require('child_process');
-                        const b = `curl -X POST -H "Authorization: token ${json["token"]}" "http://${server_ip}/hub/api/users/${process.env.CHE_WORKSPACE_ID}/server"`
+                        const b = `curl -X POST -H "Authorization: token ${json["token"]}" "${server_ip}/hub/api/users/${process.env.CHE_WORKSPACE_ID}/server"`
                         exec(`${b}`, (error, stdout, stderr) => {
                             if (error) {
                                 return;
